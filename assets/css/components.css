@@ -571,10 +571,6 @@ a.channel:hover {
     display: block;
   }
 
-  .nav-cta .btn--ghost {
-    display: none;
-  }
-
   .shot--wide {
     width: 300px;
   }
