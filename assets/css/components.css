@@ -1,0 +1,581 @@
+/* =========================================================
+   COMPONENTS — reusable pieces used across sections
+   ========================================================= */
+
+/* ---------- Brand mark ---------- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.brand-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+}
+
+/* ---------- Nav links ---------- */
+.nav-link {
+  position: relative;
+  color: var(--ink-2);
+  font-size: 0.9rem;
+  transition: color 0.25s;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  inset-inline-end: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s var(--ease);
+}
+
+.nav-link:hover {
+  color: var(--ink);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    transform 0.25s var(--ease),
+    background 0.25s,
+    box-shadow 0.25s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(16, 19, 18, 0.18);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn--ghost:hover {
+  border-color: var(--ink);
+  box-shadow: none;
+}
+
+.btn--light {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink);
+}
+
+/* ---------- Burger ---------- */
+.burger {
+  display: none;
+  padding: 8px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.burger i {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  margin: 5px 0;
+  background: var(--ink);
+}
+
+/* ---------- Hero fact strip ---------- */
+.hero-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.hero-facts > div {
+  padding: 24px 26px;
+  background: var(--bg);
+}
+
+.hero-facts b {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.hero-facts small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* ---------- Problem card (on dark) ---------- */
+.problem-card {
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.problem-card h3 {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.problem-card p {
+  color: #9aa19e;
+  font-size: 0.92rem;
+  font-weight: 300;
+}
+
+.problem-num {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--accent-soft);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+}
+
+/* ---------- Feature cell ---------- */
+.feature {
+  padding: 38px 32px;
+  background: var(--surface);
+  transition: background 0.3s;
+}
+
+.feature:hover {
+  background: var(--sand);
+}
+
+.feature .icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 20px;
+  stroke: var(--accent);
+  stroke-width: 1.4;
+  fill: none;
+}
+
+.feature h3 {
+  margin-bottom: 9px;
+  font-size: 1.02rem;
+}
+
+.feature p {
+  color: var(--muted);
+  font-size: 0.91rem;
+  font-weight: 300;
+}
+
+/* ---------- Architecture: bullet list ---------- */
+.arch-points {
+  display: grid;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.arch-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  color: var(--ink-2);
+  font-size: 0.95rem;
+}
+
+.arch-points li::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  margin-top: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ---------- Architecture: facility tree ---------- */
+.tree {
+  padding: 34px 30px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+
+.node {
+  position: relative;
+  padding-inline-start: 22px;
+  margin-inline-end: 9px;
+  border-inline-end: 1.5px solid var(--line);
+}
+
+.node > .node-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 0;
+  font-size: 0.93rem;
+  font-weight: 500;
+}
+
+.node > .node-label::before {
+  content: "";
+  position: absolute;
+  inset-inline-end: -5px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: var(--accent-soft);
+}
+
+.node-label small {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--sand);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+
+/* Nested (child) nodes read one level quieter */
+.node .node {
+  margin-top: 2px;
+}
+
+.node .node > .node-label {
+  color: var(--ink-2);
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+.node .node > .node-label::before {
+  background: var(--line);
+}
+
+.tree-note {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 300;
+}
+
+/* ---------- Platform card ---------- */
+.platform {
+  padding: 42px 36px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s;
+}
+
+.platform:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 50px rgba(16, 19, 18, 0.07);
+}
+
+.platform .tag {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 4px 13px;
+  border: 1px solid var(--accent-soft);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.platform h3 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.platform > p {
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 0.93rem;
+  font-weight: 300;
+}
+
+.platform ul {
+  display: grid;
+  gap: 11px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.platform li {
+  display: flex;
+  gap: 10px;
+  color: var(--ink-2);
+  font-size: 0.89rem;
+}
+
+.platform li::before {
+  content: "—";
+  color: var(--accent-soft);
+}
+
+/* ---------- Screenshot placeholder ---------- */
+.shot {
+  flex: none;
+  width: 250px;
+  aspect-ratio: 9 / 17;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 22px;
+  background: linear-gradient(170deg, #1c211f, #161a19);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  color: #6d7773;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.shot--wide {
+  width: 430px;
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+}
+
+.shot .icon {
+  width: 28px;
+  height: 28px;
+  stroke: #4d5350;
+  stroke-width: 1.3;
+  fill: none;
+}
+
+/* ---------- Numbered step ---------- */
+.step {
+  position: relative;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.step::before {
+  counter-increment: step;
+  content: "0" counter(step);
+  position: absolute;
+  top: -14px;
+  inset-inline-end: 0;
+  padding-inline-start: 12px;
+  background: var(--bg);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.step h3 {
+  margin-bottom: 9px;
+  font-size: 1rem;
+}
+
+.step p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+/* ---------- License card ---------- */
+.license-card {
+  padding: 34px 30px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+
+.license-card--featured {
+  border-color: var(--accent-soft);
+  box-shadow: 0 14px 40px rgba(138, 106, 61, 0.09);
+}
+
+.license-card h3 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.license-card .price {
+  margin-bottom: 18px;
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.license-card p {
+  color: var(--muted);
+  font-size: 0.89rem;
+  font-weight: 300;
+}
+
+.license-note {
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+/* ---------- FAQ accordion ---------- */
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 0;
+  font-size: 0.98rem;
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  flex: none;
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: 300;
+  transition: transform 0.3s var(--ease);
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item p {
+  max-width: 70ch;
+  padding-bottom: 24px;
+  color: var(--muted);
+  font-size: 0.93rem;
+  font-weight: 300;
+}
+
+/* ---------- Contact channel row ---------- */
+.channel {
+  display: block;
+  padding: 22px 0;
+  border-top: 1px solid var(--on-dark-line);
+  transition: padding 0.3s var(--ease);
+}
+
+a.channel:hover {
+  padding-inline-end: 10px;
+}
+
+.channel small {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--accent-soft);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+}
+
+.channel b {
+  display: inline-block;
+  color: #fff;
+  font-size: 1.06rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Phone numbers, e-mail and domains always read left-to-right */
+.channel b.ltr {
+  direction: ltr;
+}
+
+/* ---------- Contact side panel ---------- */
+.contact-aside {
+  padding: 34px 30px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r);
+}
+
+.contact-aside h3 {
+  margin-bottom: 14px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.contact-aside p {
+  margin-bottom: 24px;
+  color: #9aa19e;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .nav-cta .btn--ghost {
+    display: none;
+  }
+
+  .shot--wide {
+    width: 300px;
+  }
+}
